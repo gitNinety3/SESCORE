@@ -1,0 +1,489 @@
+/*************************************************************/
+/**											  	NAV-BAR 										    **/
+/*************************************************************/
+/* NAV-BAR CSS STARTS */
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ALL OF THE HTML */
+html{
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+}
+
+/* ALL OF THE BODY */
+body {
+  overflow-x: hidden;
+}
+
+/* ALL AMCHOR TAGS */
+a {
+  text-decoration: none;
+}
+
+/* ALL U LISTS */
+ul {
+  list-style: none;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 117rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* MENU ICONS DIV */
+.menu-icons {
+  color: #eee;
+  font-size: 4rem;
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1500;
+  display: none;
+}
+
+/* NAVIGATION BAR */
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 8rem;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+/* LOGO */
+.logo {
+  width: 5rem;
+  height: 5rem;
+  background-color: #c1d803; /* YELLOW */
+  display: flex;
+  border-radius: 100%
+  margin-right: 5rem;
+}
+
+.logo i {
+  margin: auto;
+  font-size: 3rem;
+  color: #eee;
+}
+
+/* NAVIGATION LIST */
+.nav-list {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.nav-list li {
+  line-height: 8rem;
+  position: relative;
+}
+
+.sub-menu li {
+  line-height: 4rem;
+}
+
+.nav-list a {
+  display: block;
+  color: #eee;
+  padding: 0 1.5rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  transition: color 650ms;
+}
+
+.nav-list a:hover {
+  color: #0000c8;
+}
+
+.btn {
+  padding: 1.3rem;
+  display: inline-block;
+  background-color: #a92525; /* RED */
+  border: 2px solid #a92525; /* RED */
+  border-radius: 5rem;
+  transition: background-color 650ms;
+}
+
+.btn-edit, .btn-delete {
+  padding: .5rem;
+  display: inline-block;
+  border-radius: 5rem;
+  transition: background-color 650ms;
+  color: black;
+}
+
+.btn-edit {
+  background-color: #558AD1; /* LIGHT BLUE  */
+  margin-right: 25px;
+}
+
+.btn:hover {
+  color: #eb3007;
+  background-color: rbga(0,0,0,.2);
+}
+
+.sub-menu {
+  width: 20rem;
+  display: block;
+  position: absolute;
+  border-top: 3px solid #a92525; /* RED */
+  background-color: #1e7fa3; /* BLUE */
+  z-index: 100;
+  top: 16rem;
+  transition: all 650ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sub-menu::before {
+  content: "";
+  position: absolute;
+  top: -2.5rem;
+  left: 3rem;
+  border: 1.20rem solid transparent;
+  border-bottom-color: #c1d803; /* YELLOW */
+}
+
+.sub-menu .sub-menu::before {
+    top: .9rem;
+    left: -2.5rem;
+    border: 1.2rem solid transparent;
+    border-right-color: #c1d803; /* YELLOW */
+}
+
+.sub-menu .sub-menu {
+  border-top: none;
+  border-left: 3px solid #a92525; /* RED */
+  top: 0;
+  left: 160%;
+}
+
+.nav-list li:hover > .sub-menu {
+  top: 8rem;
+  opacity: 1;
+  visibility: visible;
+}
+
+.sub-menu li:hover > .sub-menu {
+  top: 0;
+  left: 100%;
+}
+
+/* FOR BTN */
+li.move-right {
+  margin: auto 0 auto auto;
+  line-height: initial;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 850px) {
+  .nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    align-items: initial;
+    background-color: #a92525; /* RED */
+    z-index: 1000;
+  }
+
+  .nav-list > li {
+    line-height: 6rem;
+  }
+
+  .sub-menu {
+    position: initial;
+    border: 3px solid transparent;
+    border-left-color: #eb3007:
+    margin-left: 1rem;
+    max-height: 0;
+  }
+
+  .sub-menu::before {
+    display: none;
+  }
+
+  .nav-list li:hover > .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    max-height: initial;
+  }
+
+  li.move-right {
+    margin: 0 auto 0 0;
+    line-height: initial;
+  }
+
+  .menu-icons {
+    display: block;
+  }
+
+  .icon-md-close {
+    display: none;
+  }
+
+  nav.active .icon-md-close {
+    display: block;
+  }
+
+  nav.active .icon-md-menu {
+    display: none;
+  }
+
+  nav.active .nav-list {
+    display: flex;
+  }
+}
+
+/* NAV-BAR CSS ENDS */
+
+/*Hero*/
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url("../media/SESCORE_logo_V2.png") center no-repeat;
+    background-size: cover;
+}
+
+.text{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #eee;
+    text-align: center;
+}
+
+.text h1{
+    font-size: 8rem;
+    margin: 2rem 0;
+    font-family: 'Blastimo', sans-serif;
+}
+
+.text h2{
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.text p{
+    font-size: 1.6rem;
+    margin-bottom: 5rem;
+}
+
+.text .btn{
+    font-size: 1.6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    color: #eee;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 830px){
+    .text h1{
+        font-size: 4rem;
+    }
+
+    .text .btn{
+        font-size: 1.2rem;
+    }
+}
+
+/*************************************************************/
+/**													CRUD  										     	**/
+/*************************************************************/
+table {
+  border-collapse: separate;
+  border-spacing: 0px;
+  border-radius: 2px;
+}
+
+th {
+  position: sticky;
+  background-color: black;
+  color: white;
+}
+
+th, td {
+  border: 2px solid black;
+  vertical-align: center;
+}
+
+.outer-wraper {
+  border: 1px solid black;
+  box-shadow: 0px 0px 3px black;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.table-wrapper {
+  max-height: 500px;
+  overflow-x: auto;
+  overflow-y: scroll;
+  margin: 20px;
+}
+
+
+
+.container_wdd {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+.container_wdd form {
+	width: 500px;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.5);
+	opacity: inherit;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.box {
+	width: 750px;
+}
+
+.container_wdd table {
+	padding: 15px;
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.35);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	color: white;
+}
+
+.toggle-btns {
+	text-align: center;
+}
+
+.link-right {
+	display: flex;
+	justify-content: flex-end;
+	color: #000000;
+}
+
+.alert {
+	text-align: center;
+}
+
+.btn-primary {
+	text-align: center;
+	color: #000000;
+	display: flex;
+	justify-content: flex-end;
+	background-color: #34F285; /* LIGHT GREEN */
+	border-color: inherit;
+	margin-top: 20px;
+	margin-right: 50px;
+}
+
+.btn-primary:hover {
+	text-align: center;
+	color: #000000;
+}
+
+.link-primary {
+	text-align: center;
+	color: #000000;
+	/*display: flex;*/
+	justify-content: flex-end;
+	background-color: #34F285; /* LIGHT GREEN change */
+	border-color: inherit;
+	border-radius: 5px;
+	padding: 6px 10px;
+	margin-top: 20px;
+	margin-left: 50px
+}
+
+.btn-success {
+	background-color: #34F285; /* LIGHT GREEN */
+	border-color: inherit;
+	/*margin-right: 10px;*/
+}
+
+.btn-success:hover {
+	background-color: #27CE6E; /* DARK GREEN */
+	border-color: inherit;
+	color: #000000;
+}
+
+.btn-danger {
+	background-color: #ED2828; /* LIGHT RED */
+	border-color: inherit;
+	/*margin-left: 10px;*/
+}
+
+.btn-danger:hover {
+	background-color: #CE2C2C; /* DARK RED */
+	border-color: inherit;
+	color: #000000;
+}
+
+/******	BUTTON EFFECTS ******/
+.link{
+	padding: 10px 30px;
+	/*margin-top: 1px;
+  margin-bottom: 5px;*/
+	display: inline-block;
+	color: #000;
+	/*background: #078623;*/
+	background-color: #34F285; /* LIGHT GREEN */
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.link:hover{
+	text-decoration: none;
+	color: #000;
+	background: #27CE6E; /* DARK GREEN */
+  /*background-color: #1AD643;*/
+}
+
+/******	BOUNCE IN	******/
+
+.bounce-in-on-hover {
+  display: inline-block;
+
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.bounce-in-on-hover:hover, .bounce-in-on-hover:focus, .bounce-in-on-hover:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+/************************/
+
+/*************************************************************/
+/**											END OF CRUD 										    **/
+/*************************************************************/

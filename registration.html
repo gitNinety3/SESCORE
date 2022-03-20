@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+	<link href="css/registration.css" rel="stylesheet">
+</head>
+<body>
+	<form action="php/registration.php" method="post">
+		<section class="hero">
+				<div class="text">
+					<div id="box" style="text-align: center;">
+
+						<form method="post">
+							<div id="title">
+		            Registration:
+		          </div>
+
+							<label for="firstname"><b>FIRST NAME:</b></label>
+							<input id="firstname" type="text" name="first_name" required><br><br>
+							<label for="lastname"><b>LAST NAME:</b></label>
+							<input id="lastname" type="text" name="last_name" required><br><br>
+
+							<label for="username"><b>USERNAME:</b></label>
+							<input id="username" type="text" name="user_name" required><br><br>
+							<label for="password"><b>PASSWORD:</b></label>
+							<input id="password" type="password" name="password" required><br><br>
+
+							<input id="button1" type="submit" value="Register">
+							<a href="login.html">
+	      				<input id="button2" type="link" value="Login"/>
+	    				</a>
+						</form>
+					</div>
+				</div>
+		</section>
+	</form>
+</body>
+</html>
