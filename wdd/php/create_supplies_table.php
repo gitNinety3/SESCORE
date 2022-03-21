@@ -27,7 +27,7 @@ if (isset($_POST['create'])) {
        if ($result) {
        	  header("Location: ../supplies/view_supplies.php?success = Successfully Created!");
        } else {
-          header("Location: ../supplies/invwdd_supplies.php?error = Unknown Error Occurred & $user_data" . mysqli_connect_error() );
+          header("Location: ../supplies/invwdd_supplies.php?error = Unknown Error Occurred & $user_data" . mysqli_connect_error());
        }
 	}
 }
