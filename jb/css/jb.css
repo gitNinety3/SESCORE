@@ -122,7 +122,7 @@ nav {
   transition: background-color 650ms;
 }
 
-.btn-edit, .btn-delete {
+.btn-edit, .btn-delete, .btn-status {
   padding: .5rem;
   display: inline-block;
   border-radius: 5rem;
@@ -132,7 +132,17 @@ nav {
 
 .btn-edit {
   background-color: #558AD1; /* LIGHT BLUE  */
-  margin-right: 25px;
+  margin-right: 15px;
+  margin-left: 0px;
+}
+
+.btn-delete {
+  margin-right: 0px;
+}
+
+.btn-status {
+  background-color: #C1D803; /* LIGHT YELLOW  */
+  margin-right: 15px;
 }
 
 .btn:hover {
