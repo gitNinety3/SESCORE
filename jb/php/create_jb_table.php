@@ -23,8 +23,9 @@ if (isset($_POST['create'])) {
 	} else if (empty($quantity)) {
 		header("Location: ../jboard_folder/create_jboard.php?error = Quantity is required & $user_data");
 	} else {
-       $sql = "INSERT INTO workorders(workid, partid, quantity, status) VALUES('$workid', '$partid', '$quantity', 'Pending')";
-			 //$sql = "INSERT INTO wo_status(status_state) VALUES ('Pending')"
+       $sql = "INSERT INTO workorders(workid, partid, quantity, status)
+			 				 VALUES('$workid', '$partid', '$quantity',
+							 (SELECT status FROM wo_status WHERE status_id = 1))";
        $result = mysqli_query($conn, $sql);
        if ($result) {
        	  header("Location: ../jboard_folder/view_jboard.php?success = Successfully Created!");
