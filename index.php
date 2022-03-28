@@ -46,9 +46,6 @@ session_start();
                 <a href="invcbin.php">Create Bin</a>
               </li>
               <li>
-                <a href="invrec.php">Receiving</a>
-              </li>
-              <li>
                 <a href="invissue.php">Issuing</a>
               </li>
               <li>
@@ -66,9 +63,6 @@ session_start();
 										<a href="wdd/tools/invwdd_tools.php">Tools</a>
 									</li>
 								</ul>
-              </li>
-              <li>
-                <a href="invstrans.php">Stock Transfer</a>
               </li>
             </ul>
           </li>

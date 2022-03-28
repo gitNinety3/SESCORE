@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+	include("php/connections.php");
+	include("php/functions.php");
+
+	$user_data = check_login($con);
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -15,13 +23,13 @@
           <i class="icon ion-md-menu"></i>
           <i class="icon ion-md-close"></i>
       </div>
-      <a href="../index.php" class"logo">
+      <a href="index.php" class"logo">
         <!--CHANGE THIS -->
         <i class="icon"></i>
       </a>
       <ul class="nav-list">
         <li>
-          <a href="../../index.php">Home</a>
+          <a href="index.php">Home</a>
         </li>
         <li>
           <a href="../jboard.php">Job Board</a>
@@ -70,7 +78,7 @@
           <a href="../profile.php">Profile</a>
         </li>
         <li class="move-right btn">
-          <a href="../logout.php">Logout</a>
+          <a href="php/logout.php">Logout</a>
         </li>
       </ul>
     </nav>
@@ -83,7 +91,7 @@
           <form action="../php/create_wo_table.php"
               method="post">
             <!--  TITLE  -->
-           <h4 class="display-4 text-center">Create Supplies</h4><hr><br>
+           <h4 class="display-4 text-center">Create Work Order</h4><hr><br>
            <?php if (isset($_GET['error'])) { ?>
            <div class="alert alert-danger" role="alert">
             <?php echo $_GET['error']; ?>
@@ -98,14 +106,13 @@
 							 New Work Order
 						 </a>
              <!--   VIEW    -->
-              <a href="jb/jboard_folder/view_jboard.php" class="link-primary link bounce-in-on-hover">
+              <a href="jb/jboard_folder/view_jboard.php" class="btn-view link-primary bounce-in-on-hover">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                 </svg>
                 View Work Orders
               </a>
-
            </div>
           </form>
       </div>

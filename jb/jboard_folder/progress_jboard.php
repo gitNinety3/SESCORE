@@ -1,11 +1,22 @@
-<?php include '../php/edit_jb_table.php'; ?>
+<?php
+	include '../php/edit_progress_table.php';
+	/*
+	require_once("../php/connection_jb.php");
+	$id = $_GET['id'];
+	$prog_result = mysqli_query($mysqli, "SELECT * FROM wo_status WHERE status_id = $id");
+  if($row = mysqli_fetch_array($prog_result)) {
+    $status = $row['status'];
+    echo '<br>';
+  }
+	*/
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit</title>
+	<title>Status</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
-    <link rel="stylesheet" href="../css/jb.css">
+    <link rel="stylesheet" href="../css/jb_progress.css">
 </head>
 <body>
 <!--Nav markup goes here-->
@@ -84,55 +95,38 @@
 				<form action="../php/edit_jb_table.php"
 							method="post">
 					<!--edit current part-->
-					 <h4 class="display-4 text-center">Edit</h4><hr><br>
+					 <h4 class="display-4 text-center">Work Order # <?php echo $row['workid']?></h4><hr><br>
 					 <?php if (isset($_GET['error'])) { ?>
 					 <div class="alert alert-danger" role="alert">
 						<?php echo $_GET['error']; ?>
 						</div>
 					<?php } ?>
-					<!--		WORK ORDER		-->
-					 <div class="form-group">
-						 <label for="workid">Work Order</label>
-						 <input type="workid"
-									 class="form-control"
-									 id="workid"
-									 name="workid"
-									 value="<?=$row['workid'] ?>" >
-					 </div>
-					 <!--		PART NUMBER		-->
-					 <div class="form-group">
-						 <label for="partid">Part Number</label>
-						 <input type="partid"
-									 class="form-control"
-									 id="partid"
-									 name="partid"
-									 value="<?=$row['partid'] ?>" >
-					 </div>
-					 <!--		QUANTITY		-->
-					 <div class="form-group">
-						 <label for="quantity">Quantity</label>
-						 <input type="quantity"
-									 class="form-control"
-									 id="sizquantitye"
-									 name="quantity"
-									 value="<?=$row['quantity'] ?>" >
-					 </div>
-					 <input type="text"
-									name="id"
-									value="<?=$row['id']?>"
-									hidden >
-					 <!--		SUBMIT		-->
-					 <!--		SUBMIT		-->
-					 <button type="submit"
-									 class="btn-sub btn-primary link bounce-in-on-hover"
-									 name="update">
-			 			<!--	ADD SIGN	-->
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
-						  <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
-						  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
-						</svg>
-			 			Update
-			 			</button>
+					<!--		PROGRESS BAR		-->
+					<div class="container-prog">
+			      <div class="progress-container">
+							<div class="progress-display">
+								<h2 class="display-5 text-center">Status: <?php echo $row['status']?></h2><br><br>
+							</div>
+							<div class="progress-btns">
+								<?php
+						      $previous = mysqli_query($mysqli, "SELECT * FROM wo_status WHERE status_id < $id ORDER BY status_id DESC");
+						      if($row = mysqli_fetch_array($previous)) {
+						        echo '<a href="show.php?id='.$row['status_id'].'"><button type="button">PREV</button<a>';
+						      }
+						      $next = mysqli_query($mysqli, "SELECT * FROM wo_status WHERE status_id > $id ORDER BY status_id ASC");
+						      if($row = mysqli_fetch_array($next)) {
+						        echo '<a href="show.php?id='.$row['status_id'].'"><button type="button">NEXT</button<a>';
+						      } else {
+						        $finished = mysqli_query($mysqli, "SELECT * FROM wo_status ORDER BY status_id DESC LIMIT 1");
+						        if($row = mysqli_fetch_array($finished)) {
+						          echo '<a href="ship.php?id='.$row['status_id'].'"><button type="button">Finished</button<a>';
+						        }
+						      }
+						     ?>
+								<button class="btn" id="prev" disabled>Prev</button>
+					      <button type="submit" name="update"class="btn" id="next">Next</button><br>
+							</div>
+				    </div><br><br>
 						<!--		VIEW		-->
 						<a href="view_jboard.php" class="btn-view link bounce-in-on-hover">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
@@ -145,5 +139,6 @@
 			</div>
 		</div>
 	</section>
+	<script src="../functions/script.js"></script>
 	</body>
 </html>

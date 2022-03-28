@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<title>Work Orders</title>
+<title>Bin Locations</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
-  <link rel="stylesheet" href="../css/jb.css">
+  <link rel="stylesheet" href="../css/cb.css">
 </head>
 <body>
 <!--Nav markup goes here-->
@@ -80,52 +80,41 @@
     <section class="hero">
       <div class="text">
         <div class="container_wdd">
-          <form action="../php/create_jb_table.php"
+          <form action="../php/create_cb_table.php"
               method="post">
             <!--  TITLE  -->
-           <h4 class="display-4 text-center">Create Work Order</h4><hr><br>
+           <h4 class="display-4 text-center">Create Bin Location</h4><hr><br>
            <?php if (isset($_GET['error'])) { ?>
            <div class="alert alert-danger" role="alert">
             <?php echo $_GET['error']; ?>
             </div>
            <?php } ?>
-           <!--   WORK ORDER   -->
+           <!--   Deaprtment   -->
            <div class="form-group">
-             <label for="workid">Work Order</label>
-             <input type="workid"
+             <label for="departid">Department</label>
+             <input type="departid"
                    class="form-control"
-                   id="workid"
-                   name="workid"
-                   value="<?php if(isset($_GET['workid']))
-                                   echo($_GET['workid']); ?>"
-                   placeholder="Enter work order">
+                   id="departid"
+                   name="departid"
+                   value="<?php if(isset($_GET['departid']))
+                                   echo($_GET['departid']); ?>"
+                   placeholder="Enter Department">
            </div>
-           <!--     PART NUMBER    -->
+           <!--     SHELF ID    -->
            <div class="form-group">
-             <label for="partid">Part Number</label>
-             <input type="partid"
+             <label for="shelfid">Shelf ID</label>
+             <input type="shelfid"
                    class="form-control"
-                   id="partid"
-                   name="partid"
-                   value="<?php if(isset($_GET['partid']))
-                                   echo($_GET['partid']); ?>"
-                   placeholder="Enter part number">
-           </div>
-           <!--   QUANTITY   -->
-           <div class="form-group">
-             <label for="quantity">Quantity</label>
-             <input type="quantity"
-                   class="form-control"
-                   id="quantity"
-                   name="quantity"
-                   value="<?php if(isset($_GET['quantity']))
-                                   echo($_GET['quantity']); ?>"
-                   placeholder="Enter quantity">
+                   id="shelfid"
+                   name="shelfid"
+                   value="<?php if(isset($_GET['shelfid']))
+                                   echo($_GET['shelfid']); ?>"
+                   placeholder="Enter Shelf ID">
            </div>
            <!--   SUBMIT    -->
            <div class="toggle-btns">
              <button type="submit"
-                    class="btn-primary link link-hover bounce-in-on-hover"
+                    class="btn-primary link bounce-in-on-hover"
                     name="create">
                     <!--	ADD SIGN	-->
     								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
@@ -134,14 +123,14 @@
                     Create New Part
              </button>
              <!--   VIEW    -->
-              <a href="view_jboard.php"
-                 class="btn-view link bounce-in-on-hover">
+              <a href="view_bin.php" class="btn-view link-primary link bounce-in-on-hover">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                 </svg>
                 View
               </a>
+             </button>
            </div>
           </form>
       </div>

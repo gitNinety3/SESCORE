@@ -1,13 +1,11 @@
-<?php include "../php/view_jb_table.php";
-			//include "../php/progress_jb_table.php";
- ?>
+<?php include "../php/view_cb_table.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>View</title>
+	<title>Bin Locations</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
-    <link rel="stylesheet" href="../css/jb.css">
+    <link rel="stylesheet" href="../css/cb.css">
 </head>
 <body>
 <!--Nav markup goes here-->
@@ -84,7 +82,7 @@
 		<div class="text">
 			<div class="container_wdd">
 				<div class="box">
-					<h4 class="display-4 text-center">View Work Orders</h4><br>
+					<h4 class="display-4 text-center">View Bin Locations</h4><br>
 					<?php if (isset($_GET['success'])) { ?>
 				    <div class="alert alert-success" role="alert">
 					  <?php echo $_GET['success']; ?>
@@ -97,10 +95,8 @@
 								<thead>
 									<tr>
 										<th scope="col">#</th>
-										<th scope="col">Work Order</th>
-										<th scope="col">Part Number</th>
-										<th scope="col">Qty</th>
-										<th scope="col">Status</th>
+										<th scope="col">Department</th>
+										<th scope="col">Shelf ID</th>
 										<th scope="col">Action</th>
 									</tr>
 								</thead>
@@ -112,28 +108,17 @@
 									 ?>
 									<tr>
 										<th scope="row"><?=$i?></th>
-										<td><?=$rows['workid']?></td>
-										<td><?php echo $rows['partid']; ?></td>
-										<td><?php echo $rows['quantity']; ?></td>
-										<td><?php echo $rows['status']; ?></td>
-										<td><a href="edit_jboard.php?id=<?=$rows['id']?>"
-													 class="btn-edit bounce-in-on-hover">
+										<td><?=$rows['departid']?></td>
+										<td><?php echo $rows['shelfid']; ?></td>
+										<td><a href="edit_bin.php?id=<?=$rows['id']?>"
+													 class="btn-edit  bounce-in-on-hover">
 													 <!--	EDIT PEN -->
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
 														<path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
 													</svg>
 														Edit
 												</a>
-												<!--	CLIPBOARD	-->
-												<a href="progress_jboard.php?id=<?=$rows['id']?>"
-												class="btn-status bounce-in-on-hover">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-data-fill" viewBox="0 0 16 16">
-												  <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
-												  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1ZM10 8a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V8Zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1Zm4-3a1 1 0 0 1 1 1v3a1 1 0 1 1-2 0v-3a1 1 0 0 1 1-1Z"/>
-												</svg>
-												Status
-												</a>
-												<a href="../php/delete_jb_table.php?id=<?=$rows['id']?>"
+												<a href="../php/delete_cb_table.php?id=<?=$rows['id']?>"
 													 class="btn-delete btn-danger bounce-in-on-hover">
 													<!--	TRASH CAN	-->
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -150,12 +135,12 @@
 						</div>
 					</div>
 					<div class="py-5 text-center">
-						<a href="create_jboard.php" class="btn-primary link bounce-in-on-hover">
+						<a href="create_bin.php" class="btn-primary link bounce-in-on-hover">
 							<!--	ADD SIGN	-->
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
 								 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
 							</svg>
-							Create New Work Order
+							Create New Part
 						</a>
 					</div>
 				</div>

@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+:root {
+  --line-border-fill: #A92525;
+  --line-border-empty: #B2BEC3;
+}
+
 /*************************************************************/
 /**											  	NAV-BAR 										    **/
 /*************************************************************/
@@ -18,6 +25,20 @@ html{
 /* ALL OF THE BODY */
 body {
   overflow-x: hidden;
+  background-color: #FFFFFF
+  font-family: "Muli", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Muli', sans-serif;
+  color: #212121;
+  margin-bottom: 90px;
 }
 
 /* ALL AMCHOR TAGS */
@@ -37,6 +58,20 @@ header {
   top: 0;
   left: 0;
 }
+
+/*******************************/
+/*           PROGRESS          */
+/*******************************/
+.bi {
+  font-size: 1.8rem;
+  color: black; /*CHANGE COLOR*/
+}
+
+
+/*******************************/
+/*              END            */
+/*           PROGRESS          */
+/*******************************/
 
 /* CONTAINER */
 .container {

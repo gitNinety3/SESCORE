@@ -122,7 +122,7 @@ nav {
   transition: background-color 650ms;
 }
 
-.btn-edit, .btn-delete {
+.btn-view {
   padding: .5rem;
   display: inline-block;
   border-radius: 5rem;
@@ -130,9 +130,8 @@ nav {
   color: black;
 }
 
-.btn-edit {
-  background-color: #558AD1; /* LIGHT BLUE  */
-  margin-right: 25px;
+.btn-view {
+  background-color: #1E7FA3; /* LIGHT BLUE */
 }
 
 .btn:hover {
@@ -411,9 +410,7 @@ th, td {
 .link-primary {
 	text-align: center;
 	color: #000000;
-	/*display: flex;*/
 	justify-content: flex-end;
-	background-color: #34F285; /* LIGHT GREEN change */
 	border-color: inherit;
 	border-radius: 5px;
 	padding: 6px 10px;
@@ -437,6 +434,12 @@ th, td {
 	background-color: #ED2828; /* LIGHT RED */
 	border-color: inherit;
 	/*margin-left: 10px;*/
+}
+
+.btn-view:hover {
+  text-decoration: none;
+	color: #000;
+	background: #09ABE7;  /* LIGHTER BLUE */
 }
 
 .btn-danger:hover {
