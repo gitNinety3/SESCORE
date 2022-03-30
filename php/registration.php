@@ -20,7 +20,6 @@ session_start();
 			// SAVE TO THE DATABASE
 			$user_id = random_num(6);
 			$query = "INSERT INTO employees (first_name, last_name, user_id, user_name, password) VALUES ('$first_name', '$last_name', '$user_id','$user_name','$password')";
-			//$query = "INSERT INTO employees (user_id, user_name, password) VALUES ('$user_id','$user_name','$password')";
 
 			/*	CHECK IF THE USER WAS REGISTERED	*/
 			$sucessfulpush = mysqli_query($con, $query);

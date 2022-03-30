@@ -96,6 +96,7 @@
 									<tr>
 										<th scope="col">#</th>
 										<th scope="col">Measurement</th>
+										<th scope="col">Location</th>
 										<th scope="col">Size</th>
 										<th scope="col">Qty</th>
 										<th scope="col">Action</th>
@@ -110,6 +111,7 @@
 									<tr>
 										<th scope="row"><?=$i?></th>
 										<td><?=$rows['measurement']?></td>
+										<td><?php echo $rows['location']; ?></td>
 										<td><?php echo $rows['size']; ?></td>
 										<td><?php echo $rows['quantity']; ?></td>
 										<td><a href="edit_taps.php?id=<?=$rows['id']?>"

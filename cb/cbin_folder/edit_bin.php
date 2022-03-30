@@ -97,7 +97,7 @@
 									 class="form-control"
 									 id="departid"
 									 name="departid"
-									 value="<?=$row['tydepartidpe'] ?>" >
+									 value="<?=$row['departid'] ?>" >
 					 </div>
 					 <!--		SHELF ID		-->
 					 <div class="form-group">
@@ -111,13 +111,13 @@
 					 <input type="text"
 									name="id"
 									value="<?=$row['id']?>"
-									hidden >
+									hidden>
 					 <!--		SUBMIT		-->
 					 <button type="submit"
-									 class="btn btn-primary"
+									 class="btn-view btn-primary"
 									 name="update">Update</button>
 						<!--		VIEW		-->
-						<a href="view_bin.php" class="link-primary">View</a>
+						<a href="view_bin.php" class="btn-view link-primary">View</a>
 					</form>
 			</div>
 		</div>

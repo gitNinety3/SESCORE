@@ -30,19 +30,22 @@ if (isset($_GET['id'])) {
 	}
 
 	$measurement = validate($_POST['measurement']);
+	$location = validate($_POST['location']);
 	$size = validate($_POST['size']);
 	$quantity = validate($_POST['quantity']);
 	$id = validate($_POST['id']);
 
 	if (empty($measurement)) {
 		header("Location: ../tools/edit_taps.php?id = $id & error = Error: 'Measurement' is missing");
+	} else if (empty($location)) {
+		header("Location: ../tools/edit_taps.php?id = $id & error = Error: 'Location' is missing");
 	} else if (empty($size)) {
 		header("Location: ../tools/edit_taps.php?id = $id & error = Error: 'Size' is missing");
 	} else if (empty($quantity)) {
 		header("Location: ../tools/edit_taps.php?id = $id & error = Error: 'Quantity' is missing");
 	} else {
 
-       $sql = "UPDATE taps SET measurement = '$measurement', size = '$size', quantity = '$quantity' WHERE id = $id ";
+       $sql = "UPDATE taps SET measurement = '$measurement', location = '$location', size = '$size', quantity = '$quantity' WHERE id = $id ";
        $result = mysqli_query($conn, $sql);
        if ($result) {
        	  header("Location: ../tools/view_taps.php?success = Successfully Updated!");

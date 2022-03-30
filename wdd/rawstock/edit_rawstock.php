@@ -1,4 +1,16 @@
-<?php include '../php/edit_rawstock_table.php'; ?>
+<?php include '../php/edit_rawstock_table.php';
+
+$sname = "localhost";
+$uname = "root";
+$password = "";
+$db_name = "ses_core";
+
+$conn = new mysqli("localhost", "root", "root", "ses_core");
+
+  $query_locations = "SELECT * FROM bin_location";
+  $result_locations = mysqli_query($conn, $query_locations);
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,15 +111,18 @@
 									 name="type"
 									 value="<?=$row['type'] ?>" >
 					 </div>
-					 <!--		LOCATION		-->
-					 <div class="form-group">
-						 <label for="location">Location</label>
-						 <input type="location"
-									 class="form-control"
-									 id="location"
-									 name="location"
-									 value="<?=$row['location'] ?>" >
-					 </div>
+					 <!--     LOCATION -->
+           <div class="form-group">
+             <select id="location"
+                     name="location"
+                     value="<?php if(isset($_GET['location']))
+                                     echo($_GET['location']); ?>">
+               <?php
+               while($row1 = mysqli_fetch_array($result_locations)):;?>
+               <option value="<?php echo $row1[1];?>"><?php echo $row1[1];?></option>
+             <?php endwhile; ?>
+             </select>
+           </div>
 					 <!--		HEIGHT		-->
 					 <div class="form-group">
 						 <label for="height">Height</label>
@@ -150,10 +165,10 @@
 									hidden >
 					 <!--		SUBMIT		-->
 					 <button type="submit"
-									 class="btn btn-primary"
+									 class="btn link btn-primary"
 									 name="update">Update</button>
 						<!--		VIEW		-->
-						<a href="view_supplies.php" class="link-primary">View</a>
+						<a href="view_supplies.php" class="btn-view link link-primary">View</a>
 					</form>
 			</div>
 		</div>

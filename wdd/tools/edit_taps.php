@@ -1,4 +1,17 @@
-<?php include '../php/edit_tap_table.php'; ?>
+<?php
+include '../php/edit_tap_table.php';
+
+$sname = "localhost";
+$uname = "root";
+$password = "";
+$db_name = "ses_core";
+
+$conn = new mysqli("localhost", "root", "root", "ses_core");
+
+  $query_locations = "SELECT * FROM bin_location";
+  $result_locations = mysqli_query($conn, $query_locations);
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,6 +112,18 @@
 									 name="measurement"
 									 value="<?=$row['measurement'] ?>" >
 					 </div>
+					 <!--     LOCATION    -->
+					 <div class="form-group">
+						 <select id="location"
+										 name="location"
+										 value="<?php if(isset($_GET['location']))
+																		 echo($_GET['location']); ?>">
+							 <?php
+							 while($row1 = mysqli_fetch_array($result_locations)):;?>
+							 <option value="<?php echo $row1[1];?>"><?php echo $row1[1];?></option>
+						 <?php endwhile; ?>
+						 </select>
+					 </div>
 					 <!--		SIZE		-->
 					 <div class="form-group">
 						 <label for="size">Size</label>
@@ -123,10 +148,10 @@
 									hidden >
 					 <!--		SUBMIT		-->
 					 <button type="submit"
-									 class="btn btn-primary"
+									 class="btn link btn-primary"
 									 name="update">Update</button>
 						<!--		VIEW		-->
-						<a href="view_taps.php" class="link-primary">View</a>
+						<a href="view_taps.php" class="btn btn-view link link-primary">View</a>
 					</form>
 			</div>
 		</div>

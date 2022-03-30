@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
 
 	$id = validate($_GET['id']);
 
-	$sql = "SELECT * FROM bin_locations WHERE id = $id";
+	$sql = "SELECT * FROM bin_location WHERE id = $id";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
 		header("Location: ../cbin_folder/edit_bin.php?id = $id & error = Error: 'Shelf ID' is missing");
 	} else {
 
-       $sql = "UPDATE bin_location SET departid = '$departid', shelfid = '$shelfid', quantity = '$quantity' WHERE id = $id ";
+       $sql = "UPDATE bin_location SET departid = '$departid', shelfid = '$shelfid' WHERE id = $id ";
        $result = mysqli_query($conn, $sql);
        if ($result) {
        	  header("Location: ../cbin_folder/view_bin.php?success = Successfully Updated!");

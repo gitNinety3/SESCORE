@@ -1,3 +1,15 @@
+<?php
+$sname = "localhost";
+$uname = "root";
+$password = "";
+$db_name = "ses_core";
+
+$conn = new mysqli("localhost", "root", "root", "ses_core");
+
+  $query_locations = "SELECT * FROM bin_location";
+  $result_locations = mysqli_query($conn, $query_locations);
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -99,6 +111,18 @@
                    value="<?php if(isset($_GET['measurement']))
                                    echo($_GET['measurement']); ?>"
                    placeholder="Enter measurement">
+           </div>
+           <!--     LOCATION    -->
+           <div class="form-group">
+             <select id="location"
+                     name="location"
+                     value="<?php if(isset($_GET['location']))
+                                     echo($_GET['location']); ?>">
+               <?php
+               while($row1 = mysqli_fetch_array($result_locations)):;?>
+               <option value="<?php echo $row1[1];?>"><?php echo $row1[1];?></option>
+             <?php endwhile; ?>
+             </select>
            </div>
            <!--     SIZE    -->
            <div class="form-group">

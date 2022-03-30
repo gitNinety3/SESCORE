@@ -11,7 +11,7 @@ if(isset($_GET['id'])){
 
 	$id = validate($_GET['id']);
 
-	$sql = "DELETE FROM bin_locations WHERE id = $id";
+	$sql = "DELETE FROM bin_location WHERE id = $id";
   $result = mysqli_query($conn, $sql);
   if ($result) {
    	 header("Location: ../cbin_folder/view_bin.php?success = Successfully Deleted!");

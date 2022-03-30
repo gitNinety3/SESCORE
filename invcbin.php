@@ -100,14 +100,14 @@ session_start();
            <?php } ?>
            <!--   SUBMIT    -->
            <div class="toggle-btns">
-						 <a href="cb/create_bin/create_bin.php" class="btn-success link-primary link bounce-in-on-hover">
+						 <a href="cb/cbin_folder/create_bin.php" class="btn-success link-primary link bounce-in-on-hover">
 							 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
 								 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
 							 </svg>
 							 New Bin Locations
 						 </a>
              <!--   VIEW    -->
-              <a href="cb/create_bin/view_bin.php" class="btn-view link-primary bounce-in-on-hover">
+              <a href="cb/cbin_folder/view_bin.php" class="btn-view link-primary bounce-in-on-hover">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
