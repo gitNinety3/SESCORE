@@ -1,7 +1,6 @@
 /*************************************************************/
 /**											  	NAV-BAR 										    **/
 /*************************************************************/
-/* NAV-BAR CSS STARTS */
 *,
 *::before,
 *::after{
@@ -204,6 +203,7 @@ li.move-right {
     align-items: initial;
     background-color: #a92525; /* RED */
     z-index: 1000;
+    overflow-y: scroll;
   }
 
   .nav-list > li {

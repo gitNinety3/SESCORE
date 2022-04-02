@@ -1,4 +1,6 @@
-/* NAV-BAR CSS STARTS */
+/*************************************************************/
+/**											  	NAV-BAR 										    **/
+/*************************************************************/
 *,
 *::before,
 *::after{
@@ -35,12 +37,112 @@ header {
   left: 0;
 }
 
+#box {
+  background-color: rgba(0,0,0,0.8);
+  margin: auto;
+  width: 500px;
+  height: 350px;
+  padding: 20px;
+  border-radius: 7.5px;
+}
+
+#title {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+
+#text {
+  height: 25px;
+  border-radius: 5px;
+  padding: 4px;
+  border: solid thin #aaa;
+  width: 100%;
+}
+
 /* CONTAINER */
 .container {
   width: 100%;
   max-width: 117rem;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+/* BUTTONS */
+.link{
+	padding: 10px 30px;
+	margin-top: 45px;
+  margin-bottom: 5px;
+	display: inline-block;
+	color: #000;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.link:hover{
+	text-decoration: none;
+	color: #000;
+}
+/*  CLOCK IN BUTTON */
+.clock-in {
+  background: #1AD643; /* LIGHT GREEN */
+  margin-right: 10px;
+}
+
+.clock-in:hover {
+  background-color: #078623; /* DARK GREEN  */
+}
+
+/*  CLOCK OUT BUTTON */
+.clock-out {
+  background: #E52626; /* LIGHT RED */
+  margin-left: 10px;
+}
+
+.clock-out:hover {
+  background-color: #a92525; /* DARK RED */
+}
+
+/*  TIME-OFF BUTTON */
+.time-off {
+  background: #c1d803; /* LIGHT YELLOW  */
+  margin-right: 10px;
+}
+
+.time-off:hover {
+  background-color: #98A721; /* DARK YELLOW */
+}
+
+/*  SCHEDULE BUTTON */
+.schedule {
+  background: #1AA9DE; /* LIGHT BLUE  */
+  margin-LEFT: 10px;
+}
+
+.schedule:hover {
+  background-color: #1e7fa3; /* DARK BLUE */
+}
+
+/*===================*/
+/* BOUNCE IN
+/*===================*/
+
+.bounce-in-on-hover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.bounce-in-on-hover:hover, .bounce-in-on-hover:focus, .bounce-in-on-hover:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
 
 /* MENU ICONS DIV */
@@ -119,6 +221,18 @@ nav {
   transition: background-color 650ms;
 }
 
+.btn-view {
+  padding: .5rem;
+  display: inline-block;
+  border-radius: 5rem;
+  transition: background-color 650ms;
+  color: black;
+}
+
+.btn-view {
+  background-color: #1E7FA3; /* LIGHT BLUE */
+}
+
 .btn:hover {
   color: #eb3007;
   background-color: rbga(0,0,0,.2);
@@ -190,6 +304,14 @@ li.move-right {
     background-color: #a92525; /* RED */
     z-index: 1000;
     overflow-y: scroll;
+
+    .text h1{
+        font-size: 4rem;
+    }
+
+    .text .btn{
+        font-size: 1.2rem;
+    }
   }
 
   .nav-list > li {
@@ -240,7 +362,9 @@ li.move-right {
   }
 }
 
-/* NAV-BAR CSS ENDS */
+/*************************************************************/
+/**							  		  	NAV-BAR ENDS 										  **/
+/*************************************************************/
 
 /*Hero*/
 .hero {
@@ -286,12 +410,183 @@ li.move-right {
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 830px){
-    .text h1{
-        font-size: 4rem;
-    }
-
-    .text .btn{
-        font-size: 1.2rem;
-    }
+/*************************************************************/
+/**													CRUD  										     	**/
+/*************************************************************/
+table {
+  border-collapse: separate;
+  border-spacing: 0px;
+  border-radius: 2px;
 }
+
+th {
+  position: sticky;
+  background-color: black;
+  color: white;
+}
+
+th, td {
+  border: 2px solid black;
+  vertical-align: center;
+}
+
+.outer-wraper {
+  border: 1px solid black;
+  box-shadow: 0px 0px 3px black;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.table-wrapper {
+  max-height: 500px;
+  overflow-x: auto;
+  overflow-y: scroll;
+  margin: 20px;
+}
+
+
+
+.container_wdd {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+.container_wdd form {
+	width: 500px;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.5);
+	opacity: inherit;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.box {
+	width: 750px;
+}
+
+.container_wdd table {
+	padding: 15px;
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.35);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	color: white;
+}
+
+.toggle-btns {
+	text-align: center;
+}
+
+.link-right {
+	display: flex;
+	justify-content: flex-end;
+	color: #000000;
+}
+
+.alert {
+	text-align: center;
+}
+
+.btn-primary {
+	text-align: center;
+	color: #000000;
+	display: flex;
+	justify-content: flex-end;
+	background-color: #34F285; /* LIGHT GREEN */
+	border-color: inherit;
+	margin-top: 20px;
+	margin-right: 50px;
+}
+
+.btn-primary:hover {
+	text-align: center;
+	color: #000000;
+}
+
+.link-primary {
+	text-align: center;
+	color: #000000;
+	justify-content: flex-end;
+	border-color: inherit;
+	border-radius: 5px;
+	padding: 6px 10px;
+	margin-top: 20px;
+	margin-left: 50px
+}
+
+.btn-success {
+	background-color: #34F285; /* LIGHT GREEN */
+	border-color: inherit;
+	/*margin-right: 10px;*/
+}
+
+.btn-success:hover {
+	background-color: #27CE6E; /* DARK GREEN */
+	border-color: inherit;
+	color: #000000;
+}
+
+.btn-danger {
+	background-color: #ED2828; /* LIGHT RED */
+	border-color: inherit;
+	/*margin-left: 10px;*/
+}
+
+.btn-view:hover {
+  text-decoration: none;
+	color: #000;
+	background: #09ABE7;  /* LIGHTER BLUE */
+}
+
+.btn-danger:hover {
+	background-color: #CE2C2C; /* DARK RED */
+	border-color: inherit;
+	color: #000000;
+}
+
+/******	BUTTON EFFECTS ******/
+.link{
+	padding: 10px 30px;
+	/*margin-top: 1px;
+  margin-bottom: 5px;*/
+	display: inline-block;
+	color: #000;
+	/*background: #078623;*/
+	background-color: #34F285; /* LIGHT GREEN */
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.link:hover{
+	text-decoration: none;
+	color: #000;
+	background: #27CE6E; /* DARK GREEN */
+  /*background-color: #1AD643;*/
+}
+
+/******	BOUNCE IN	******/
+
+.bounce-in-on-hover {
+  display: inline-block;
+
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.bounce-in-on-hover:hover, .bounce-in-on-hover:focus, .bounce-in-on-hover:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+/************************/
+
+/*************************************************************/
+/**											END OF CRUD 										    **/
+/*************************************************************/
