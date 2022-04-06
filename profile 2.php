@@ -75,8 +75,8 @@
 <section class="hero">
   <div class="text">
     <div id="box">
-      <div id="title">
-        <div class="container">
+      <form method="post">
+        <div id="title">
           <h2>Profile: <?php echo $user_data['user_name'];?></h2>
           <?php date_default_timezone_set('America/Los_Angeles');
               $time = time();
@@ -115,9 +115,7 @@
                  View Schedule
           </button>
 				</div>
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
 </section>
 <script src="functions/scripts.js"></script>

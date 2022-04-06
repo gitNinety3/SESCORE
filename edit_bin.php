@@ -1,13 +1,14 @@
+<?php include 'php/edit_cb_table.php'; ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>JOB BOARD</title>
+	<title>Edit</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
-	<link href="css/style.css" rel="stylesheet">
-	<!--<link href="css/jboard.css" rel="stylesheet">	there is something in the body that we need-->
+  <link rel="stylesheet" href="css/cb.css">
 </head>
 <body>
 	<!--Nav markup goes here-->
@@ -73,42 +74,53 @@
     </header>
   <!--End nav-->
 
-    <section class="hero">
-			<div class="text">
-				<div id="box">
-						<div id="title">
-							<div class="container">
-								<form action="php/create_wo_table.php"
-										method="post">
-									<!--  TITLE  -->
-								 <h4 class="display-4 text-center">Create Work Order</h4><hr><br>
-								 <?php if (isset($_GET['error'])) { ?>
-								 <div class="alert alert-danger" role="alert">
-									<?php echo $_GET['error']; ?>
-									</div>
-								 <?php } ?>
-								 <!--   SUBMIT    -->
-								 <div class="toggle-btns">
-									 <a href="create_jboard.php" class="link-primary link bounce-in-on-hover">
-										 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-											 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-										 </svg>
-										 New Work Order
-									 </a>
-									 <!--   VIEW    -->
-										<a href="view_jboard.php" class="btn-view link-primary bounce-in-on-hover">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-												<path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-												<path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-											</svg>
-											View Work Orders
-										</a>
-								 </div>
-							 </form>
-              </div>
-						</div>
+	<section class="hero">
+		<div class="text">
+			<div id="box">
+				<div id="title">
+					<div class="container">
+						<form action="php/edit_cb_table.php"
+									method="post">
+							<!--edit current part-->
+							 <h4 class="display-4 text-center">Edit</h4><hr><br>
+							 <?php if (isset($_GET['error'])) { ?>
+							 <div class="alert alert-danger" role="alert">
+								<?php echo $_GET['error']; ?>
+								</div>
+							<?php } ?>
+							<!--		DEPARTMENT		-->
+							 <div class="form-group">
+								 <label for="departid">Department</label>
+								 <input type="departid"
+											 class="form-control"
+											 id="departid"
+											 name="departid"
+											 value="<?=$row['departid'] ?>" >
+							 </div>
+							 <!--		SHELF ID		-->
+							 <div class="form-group">
+								 <label for="shelfid">Shelf ID</label>
+								 <input type="shelfid"
+											 class="form-control"
+											 id="shelfid"
+											 name="shelfid"
+											 value="<?=$row['shelfid'] ?>" >
+							 </div>
+							 <input type="text"
+											name="id"
+											value="<?=$row['id']?>"
+											hidden>
+							 <!--		SUBMIT		-->
+							 <button type="submit"
+											 class="btn-view btn-primary"
+											 name="update">Update</button>
+								<!--		VIEW		-->
+								<a href="view_bin.php" class="btn-view link-primary">View</a>
+							</form>
+					</div>
 				</div>
 			</div>
-    </section>
-</body>
+		</div>
+	</section>
+	</body>
 </html>
